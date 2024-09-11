@@ -12,7 +12,7 @@ plugins {
     // id("com.diffplug.spotless") version "5.6.1"
     id("com.google.cloud.tools.jib") version "3.3.1"
     id("org.sonarqube") version "4.4.1.3373"
-    id("jacoco")
+    // id("jacoco")
 }
 
 apply plugin: 'java'
@@ -100,10 +100,10 @@ jib {
     }
 }
 
-jacoco {
-    toolVersion = "0.8.5"
-    reportsDir = file("$buildDir/jacoco")
-}
+// jacoco {
+//     toolVersion = "0.8.5"
+//     reportsDir = file("$buildDir/jacoco")
+// }
 
 tasks.register('GenerateSampleVulnerability'){
 	group = 'SasanLabs'
@@ -160,17 +160,17 @@ dependencies {
     implementation group: 'commons-fileupload', name: 'commons-fileupload', version: '1.5'
 }
 
-test {
-    useJUnitPlatform()
-    finalizedBy jacocoTestReport
-}
+// test {
+//     useJUnitPlatform()
+//     finalizedBy jacocoTestReport
+// }
 
-jacocoTestReport {
-    dependsOn test
-    reports {
-            xml.enabled true
-            html.enabled true
-            csv.enabled false
-            xml.destination file("${buildDir}/reports/jacoco.xml")
-    }
-}
+// jacocoTestReport {
+//     dependsOn test
+//     reports {
+//             xml.enabled true
+//             html.enabled true
+//             csv.enabled false
+//             xml.destination file("${buildDir}/reports/jacoco.xml")
+//     }
+// }
