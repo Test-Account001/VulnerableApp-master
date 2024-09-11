@@ -33,12 +33,12 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
 
-      # Sets up a JDK 8 environment for the job with the 'zulu' distribution
-      - name: Set up JDK 8
-        uses: actions/setup-java@v2
+      # Sets up a JDK 17 environment for the job with the 'zulu' distribution
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
         with:
-          java-version: '8'
-          distribution: 'temurin'
+          java-version: 17
+          distribution: 'zulu'
 
       # Caches SonarCloud packages to speed up workflow execution
       - name: Cache SonarCloud packages
